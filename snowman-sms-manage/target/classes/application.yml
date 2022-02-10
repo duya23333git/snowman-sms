@@ -1,0 +1,31 @@
+server:
+  port: 8770
+spring:
+  application:
+    name: manage
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.3.29:3306/snowman-sms?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.3.48:6868/eureka
+      url:
+  instance:
+    prefer-ip-address: true
+mybatis-plus:
+  mapper-locations:
+    - classpath*:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: INPUT
+      insert-strategy: NOT_NULL
+      update-strategy: NOT_NULL
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
