@@ -53,16 +53,21 @@ public class BlackListController {
         return new Result<>(true, StatusCode.OK, "ok", page);
     }
 
-    // 文件上传
+    /**
+     * 文件上传
+     * @param file
+     * @return
+     */
+    @PostMapping("upload")
     public Result<? extends Object> upload(@RequestParam(value = "file") MultipartFile file) {
 
         if (file.isEmpty()) {
             return new Result<>(false, StatusCode.ERROR, "error");
         }
 
-        Result<Boolean> res = blackListService.upload(file);
+        Boolean flag = blackListService.upload(file);
 
-        return res;
+        return new Result<>(flag, StatusCode.OK, "ok");
     }
 
 

@@ -12,6 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface BlackListService extends IService<BlackListEntity> {
 
-    Result<Boolean> upload(MultipartFile file);
+    Boolean upload(MultipartFile file);
 
 }
